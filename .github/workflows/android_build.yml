@@ -27,4 +27,4 @@ jobs:
       uses: actions/upload-artifact@v4.6.2
       with:
         name: QQPro
-        path: app/dist/QQPro.*.apk
+        path: app/dist/QQPro*.apk
