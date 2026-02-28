@@ -29,12 +29,12 @@ class 版权信息 : SelfFragment() {
             appendLine("更换等级头衔相关内容接口")
             appendLine("调整管理撤回按钮位置")
             appendLine("调整等级头衔位置")
-            appendLine("也许修复卡片消息图片尺寸问题")
-            appendLine("[有人@我]但是bug有点多，就这样吧")
+            appendLine("修复卡片消息图片尺寸问题")
+            appendLine("[有人@我]但是bug有点多")
 			appendLine("添加无障碍保活服务")
             appendLine()
             appendLine("交流群：392106734")
-            appendLine("2025/02/28")
+            appendLine("2026/02/28")
         }
         return result
     }
