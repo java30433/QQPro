@@ -9,7 +9,7 @@ import android.widget.TextView
 import com.tencent.qqnt.watch.selftab.ui.SelfFragment
 import momoi.anno.mixin.Mixin
 
-const val VERSION_CODE = 11
+const val VERSION_CODE = 12
 
 @Mixin
 class 版权信息 : SelfFragment() {
@@ -22,7 +22,7 @@ class 版权信息 : SelfFragment() {
         val result = super.Y(inflater, container, savedInstanceState)
         val tv = result.findViewById<TextView>(2114521808)
         tv.text = buildString {
-            appendLine("QQPro - v1.5.1")
+            appendLine("QQPro - v1.5.2")
             appendLine()
             appendLine("更新日志：")
             appendLine("优化回复消息溯源")
@@ -31,9 +31,10 @@ class 版权信息 : SelfFragment() {
             appendLine("调整等级头衔位置")
             appendLine("也许修复卡片消息图片尺寸问题")
             appendLine("[有人@我]但是bug有点多，就这样吧")
+			appendLine("添加无障碍保活服务")
             appendLine()
             appendLine("交流群：392106734")
-            appendLine("2025/06/22")
+            appendLine("2025/02/28")
         }
         return result
     }
