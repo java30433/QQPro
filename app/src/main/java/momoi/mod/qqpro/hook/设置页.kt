@@ -118,7 +118,7 @@ class 设置页 : SettingsActivity() {
                 .textColor(0xFF_FFFFFF)
                 .apply {
                     (layoutParams as? LinearLayout.LayoutParams)?.apply {
-                        width = 86.dp
+                        width = 60.dp
                         height = LinearLayout.LayoutParams.WRAP_CONTENT
                     }
     
