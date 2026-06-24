@@ -54,7 +54,7 @@ class 设置页 : SettingsActivity() {
             )
             floatInput(
                 "聊天文本缩放",
-                "",
+                "仅影响聊天页",
                 Settings.chatScale
             )
             switch(
@@ -85,7 +85,22 @@ class 设置页 : SettingsActivity() {
         baseEntry(title, desc) {
             add<Switch>()
                 .checked(pref.value)
-                .weight(0.6f)
+                .apply {
+                    showText = false
+    
+                    scaleX = 0.85f
+                    scaleY = 0.85f
+        
+                    setSwitchMinWidth(36.dp)
+                    minimumWidth = 0
+                    minWidth = 0
+                    setPadding(0, 0, 0, 0)
+    
+                    (layoutParams as? LinearLayout.LayoutParams)?.apply {
+                        width = LinearLayout.LayoutParams.WRAP_CONTENT
+                        height = LinearLayout.LayoutParams.WRAP_CONTENT
+                    }
+                }
                 .doAfterSwitch {
                     pref.value = it
                 }
@@ -101,7 +116,18 @@ class 设置页 : SettingsActivity() {
                 .text(pref.value.toString())
                 .textSize(13f)
                 .textColor(0xFF_FFFFFF)
-                .weight(1f)
+                .apply {
+                    (layoutParams as? LinearLayout.LayoutParams)?.apply {
+                        width = 60.dp
+                        height = LinearLayout.LayoutParams.WRAP_CONTENT
+                    }
+    
+                    setSingleLine(true)
+                    setPadding(8.dp, 6.dp, 8.dp, 6.dp)
+    
+                    inputType = android.text.InputType.TYPE_CLASS_NUMBER or
+                            android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
+                }
                 .doAfterTextChanged {
                     pref.value = it.toString().toFloatOrNull() ?: pref.value
                 }
