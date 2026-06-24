@@ -9,6 +9,7 @@ import com.tencent.qqnt.watch.chat.list.WatchRecentContactHolder
 import com.tencent.qqnt.watch.chat.list.WatchRecentItemBuilder
 import momoi.anno.mixin.Mixin
 import momoi.mod.qqpro.Colors
+import momoi.mod.qqpro.hook.action.RecentContacts
 import momoi.mod.qqpro.lib.clickable
 
 const val TOKEN = "\u200B\u200B\u200B\u200B\u200B"
@@ -43,6 +44,7 @@ abstract class 有人at我 : WatchRecentItemBuilder() {
                 append(tv.text.toString().removeBefore(TOKEN))
             }
         }
+        RecentContacts.compactHomeText(p0)
     }
 }
 

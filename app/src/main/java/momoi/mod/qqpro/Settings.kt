@@ -6,8 +6,8 @@ import momoi.mod.qqpro.util.Utils
 
 object Settings {
     val sp: SharedPreferences = Utils.application.getSharedPreferences("qqpro", 0)
-    val scale = FloatPref("scale", 0.9f)
-    val chatScale = FloatPref("chatScale", 0.93f)
+    val scale = FloatPref("scale", 0.72f, 0.9f)
+    val chatScale = FloatPref("chatScale", 0.49f, 0.93f)
     val enableSmoothScroll = BooleanPref("enableSmoothScroll", false)
     val blockBack = BooleanPref("blockBack", false)
     val swapCenterKeyboard = BooleanPref("swapCenterKeyboard", false)
@@ -32,8 +32,19 @@ abstract class Pref<T>(def: T) {
     protected abstract fun set(value: T)
 }
 
-class FloatPref(private val key: String, def: Float) :
-    Pref<Float>(Settings.sp.getFloat(key, def)) {
+class FloatPref(
+    private val key: String,
+    def: Float,
+    legacyDef: Float? = null
+) : Pref<Float>(Settings.sp.getFloat(key, def).let { stored ->
+    if (legacyDef != null && stored == legacyDef) def else stored
+}) {
+    init {
+        if (legacyDef != null && Settings.sp.getFloat(key, value) == legacyDef) {
+            set(value)
+        }
+    }
+
     override fun set(value: Float) = Settings.sp.edit {
         putFloat(key, value)
     }
